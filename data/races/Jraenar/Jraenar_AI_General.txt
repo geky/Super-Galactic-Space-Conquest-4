@@ -1,0 +1,92 @@
+=======================================================================================
+AI DATA FILE - Jraenar
+=======================================================================================
+
+Demeanor:
+  Psychotic, Violent, Aggressive, Impulsive, Neutral, Friendly, 
+  Honorable, Serene
+
+Culture:
+  Neutral, Berzerkers, Warriors, Traders, Politicians, Artisans, 
+  Scientists, Workers, Schemers, Zealots, Engineers, Merchants, 
+  Renegades, Xenophobes
+
+Planet Type:
+  Rock, Ice, Gas Giant
+
+Atmosphere:
+  None, Methane, Oxygen, Hydrogen, Carbon Dioxide
+
+Characteristics:
+  Physical Strength, Intelligence, Cunning, Environmental Resistance,
+  Reproduction, Happiness, Aggressiveness, Defensiveness, Political Savvy,
+  Mining Aptitude, Farming Aptitude, Refining Aptitude, Construction Aptitude,
+  Repair Aptitude, Maintenance Aptitude
+
+Adv Traits:
+  Advanced Power Conservation, Mechanoids, Lucky, Natural Merchants, 
+  Propulsion Experts, Ancient Race, Advanced Storage Techniques, 
+  Hardy Spacefarrers, Psychic, Deeply Religious, Temporal Knowledge, 
+  Crystallurgy, Emotionless
+
+
+=======================================================================================
+*BEGIN*
+=======================================================================================
+
+Name                                     := Jraenar
+Description                              := The Jraenar are an aggressive race of reptillian warriors. They are known for their aggressiveness and cunning.
+Empire Name                              := Jraenar
+Empire Type                              := Imperium
+Emperor Name                             := Jar-Nolath
+Emperor Title                            := Master General
+Biological Description                   := The Jraenar are bi-pedal reptiles which stand about 2 meters high. Highly intelligent and resourceful, the Jraenar are known for their crafty nature and military prowess. A Jraenar prefers a temperature of approximately 100C and has a normal lifespan of 60 years. 
+Society Description                      := The Jraenar society is organized in a heirarchy from the Master General on down to the lowly workers. All members of the society are considered valuable, and each serves to promote the interest of their species. Though they have never changed their hardworking nature, they are now devoted mainly to a military expansionist philosophy.
+General History Description              := The Jraenar were originally a quiet hard working race which didn't have must interest in the outside galaxy. But after a number of wars and the rise of the first Master General, the Jraenar entered into an aggressive military expansion phase. 
+Demeanor                                 := Aggressive
+Culture                                  := Warriors
+Happiness Type                           := Peaceful
+Planet Type                              := Rock
+Atmosphere                               := Hydrogen
+Design Name File                         := Argentin.txt
+Race Opt 1 Num Characteristics           := 4
+Race Opt 1 Characteristic 1 Type         := Cunning
+Race Opt 1 Characteristic 1 Amount       := 120
+Race Opt 1 Characteristic 2 Type         := Aggressiveness
+Race Opt 1 Characteristic 2 Amount       := 110
+Race Opt 1 Characteristic 3 Type         := Intelligence
+Race Opt 1 Characteristic 3 Amount       := 120
+Race Opt 1 Characteristic 4 Type         := Physical Strength
+Race Opt 1 Characteristic 4 Amount       := 120
+Race Opt 1 Num Advanced Traits           := 0
+Race Opt 2 Num Characteristics           := 5
+Race Opt 2 Characteristic 1 Type         := Cunning
+Race Opt 2 Characteristic 1 Amount       := 120
+Race Opt 2 Characteristic 2 Type         := Aggressiveness
+Race Opt 2 Characteristic 2 Amount       := 120
+Race Opt 2 Characteristic 3 Type         := Intelligence
+Race Opt 2 Characteristic 3 Amount       := 120
+Race Opt 2 Characteristic 4 Type         := Physical Strength
+Race Opt 2 Characteristic 4 Amount       := 120
+Race Opt 2 Characteristic 5 Type         := Defensiveness 
+Race Opt 2 Characteristic 5 Amount       := 110
+Race Opt 2 Num Advanced Traits           := 0
+Race Opt 3 Num Characteristics           := 5
+Race Opt 3 Characteristic 1 Type         := Cunning
+Race Opt 3 Characteristic 1 Amount       := 120
+Race Opt 3 Characteristic 2 Type         := Aggressiveness
+Race Opt 3 Characteristic 2 Amount       := 120
+Race Opt 3 Characteristic 3 Type         := Intelligence
+Race Opt 3 Characteristic 3 Amount       := 120
+Race Opt 3 Characteristic 4 Type         := Physical Strength
+Race Opt 3 Characteristic 4 Amount       := 120
+Race Opt 3 Characteristic 5 Type         := Defensiveness 
+Race Opt 3 Characteristic 5 Amount       := 110
+Race Opt 3 Num Advanced Traits           := 2
+Race Opt 3 Adv Trait 1                   := Natural Merchants
+Race Opt 3 Adv Trait 2                   := Hardy Industrialists
+
+=======================================================================================
+*END*
+=======================================================================================
+

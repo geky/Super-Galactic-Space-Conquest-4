@@ -1,0 +1,83 @@
+=======================================================================================
+AI DATA FILE - CueCappa
+=======================================================================================
+
+Demeanor:
+  Psychotic, Violent, Aggressive, Impulsive, Neutral, Friendly, 
+  Honorable, Serene
+
+Culture:
+  Neutral, Berzerkers, Warriors, Traders, Politicians, Artisans, 
+  Scientists, Workers, Schemers, Zealots, Engineers, Merchants, 
+  Renegades, Xenophobes
+
+Planet Type:
+  Rock, Ice, Gas Giant
+
+Atmosphere:
+  None, Methane, Oxygen, Hydrogen, Carbon Dioxide
+
+Characteristics:
+  Physical Strength, Intelligence, Cunning, Environmental Resistance,
+  Reproduction, Happiness, Aggressiveness, Defensiveness, Political Savvy,
+  Mining Aptitude, Farming Aptitude, Refining Aptitude, Construction Aptitude,
+  Repair Aptitude, Maintenance Aptitude
+
+Adv Traits:
+  Advanced Power Conservation, Mechanoids, Lucky, Natural Merchants, 
+  Propulsion Experts, Ancient Race, Advanced Storage Techniques, 
+  Hardy Spacefarrers, Psychic, Deeply Religious, Temporal Knowledge, 
+  Crystallurgy, Emotionless
+
+
+=======================================================================================
+*BEGIN*
+=======================================================================================
+
+Name                                     := Cue Cappa
+Description                              := The Cue Cappa are a symbiotic race that have advanced psychic abilities. 
+Empire Name                              := Cue Cappa
+Empire Type                              := Commonwealth
+Emperor Name                             := Gortalooth
+Emperor Title                            := Regent
+Biological Description                   := The Cue Cappa are actually made up of two symbiotic races, the "Cue" and the "Cappa".  The Cappa are large squid like creatures, and the Cue are small parisitical beings which inhabit their bodies.  Their symbiosis is so complete that it is speculated that the Cue and the Cappa were actually one race in the distant past.  The Cue are a highly psychic species, and use the Cappa for most of the manual labour involved in building an interstellar empire.  
+Society Description                      := Far from being a manevolant race that most assume them to be, the Cue Cappa are actually quite peaceful.  Rumors that Cue jump between Cappa as they desire have proven to be false; indeed, most Cue Cappa unions last a lifetime. Towards other races, they are quite indifferent. Should another race treat them well, that race will be treated well in return, but should another race treat them badly, they can be quite dangerous, as the Cue are quite strong telepaths. The society is ruled completely by an elected Cue ruler.
+General History Description              := Fear has been the biggest determinant of the Cue Cappa history.  Most species inherently fear parisitical lifeforms, but that compounded with the Cue's psychic abilities creates a recipe for distrust.  The few races that have gotten past these prejudices have had long and beneficial relations with the Cue Cappa. 
+Demeanor                                 := Honorable
+Culture                                  := Merchants
+Happiness Type                           := Peaceful
+Planet Type                              := Rock
+Atmosphere                               := Oxygen
+Design Name File                         := Alabama.txt
+Race Opt 1 Num Characteristics           := 2
+Race Opt 1 Characteristic 1 Type         := Maintenance Aptitude
+Race Opt 1 Characteristic 1 Amount       := 105
+Race Opt 1 Characteristic 2 Type         := Political Savvy
+Race Opt 1 Characteristic 2 Amount       := 110
+Race Opt 1 Num Advanced Traits           := 1
+Race Opt 1 Adv Trait 1                   := Psychic
+Race Opt 2 Num Characteristics           := 3
+Race Opt 2 Characteristic 1 Type         := Maintenance Aptitude
+Race Opt 2 Characteristic 1 Amount       := 110
+Race Opt 2 Characteristic 2 Type         := Political Savvy
+Race Opt 2 Characteristic 2 Amount       := 120
+Race Opt 2 Characteristic 3 Type         := Physical Strength
+Race Opt 2 Characteristic 3 Amount       := 120
+Race Opt 2 Num Advanced Traits           := 1
+Race Opt 2 Adv Trait 1                   := Psychic
+Race Opt 3 Num Characteristics           := 3
+Race Opt 3 Characteristic 1 Type         := Maintenance Aptitude
+Race Opt 3 Characteristic 1 Amount       := 110
+Race Opt 3 Characteristic 2 Type         := Political Savvy
+Race Opt 3 Characteristic 2 Amount       := 120
+Race Opt 3 Characteristic 3 Type         := Physical Strength
+Race Opt 3 Characteristic 3 Amount       := 120
+Race Opt 3 Num Advanced Traits           := 3
+Race Opt 3 Adv Trait 1                   := Psychic
+Race Opt 3 Adv Trait 2                   := Natural Merchants
+Race Opt 3 Adv Trait 3                   := Lucky
+
+=======================================================================================
+*END*
+=======================================================================================
+

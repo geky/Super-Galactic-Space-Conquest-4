@@ -1,0 +1,83 @@
+=======================================================================================
+AI DATA FILE - Sergetti
+=======================================================================================
+
+Demeanor:
+  Psychotic, Violent, Aggressive, Impulsive, Neutral, Friendly, 
+  Honorable, Serene
+
+Culture:
+  Neutral, Berzerkers, Warriors, Traders, Politicians, Artisans, 
+  Scientists, Workers, Schemers, Zealots, Engineers, Merchants, 
+  Renegades, Xenophobes
+
+Planet Type:
+  Rock, Ice, Gas Giant
+
+Atmosphere:
+  None, Methane, Oxygen, Hydrogen, Carbon Dioxide
+
+Characteristics:
+  Physical Strength, Intelligence, Cunning, Environmental Resistance,
+  Reproduction, Happiness, Aggressiveness, Defensiveness, Political Savvy,
+  Mining Aptitude, Farming Aptitude, Refining Aptitude, Construction Aptitude,
+  Repair Aptitude, Maintenance Aptitude
+
+Adv Traits:
+  Advanced Power Conservation, Mechanoids, Lucky, Natural Merchants, 
+  Propulsion Experts, Ancient Race, Advanced Storage Techniques, 
+  Hardy Spacefarrers, Psychic, Deeply Religious, Temporal Knowledge, 
+  Crystallurgy, Emotionless
+
+
+=======================================================================================
+*BEGIN*
+=======================================================================================
+
+Name                                     := Sergetti
+Description                              := The Sergetti are a race of aggressive xenophobes which have advanced propulsion skills.
+Empire Name                              := Sergetti
+Empire Type                              := Empire
+Emperor Name                             := Triana
+Emperor Title                            := Queen
+Biological Description                   := The Sergetti were orginally an aquatic species which have learned to transport their original ocean with them. They are approximately 3 meters long and have a serpentine body. Their average lifespan is approximately 60 years and they are predominantly male. There exist only a few females which continually give birth to new Sergetti. 
+Society Description                      := The Sergetti evolved on a planet that was barren of most other life forms. When the Sergetti did venture into space, they found that they had a cultural distaste for anything that was not like themselves. This caused them to become a deeply xenophobic society which rarely interacts with outsiders. Their society is grouped into autonomous states each with its ruling female. As the Sergetti ventured into space, they agreed that one voice must speek for them all. The designation of queen is given to the current ruling female.
+General History Description              := The Sergetti created large ships containing their primordial ocean to move out into space. This unbridled expansion did not last long as they encountered the hideous aliens that inhabited the rest of the galaxy. The Sergetti continue to expand to this day, but tend to stay away from anything alien to them. The logistics of transporting that much liquid inside their ships has led the Sergetti to be experts in space travel and propulsion.
+Demeanor                                 := Aggressive
+Culture                                  := Xenophobes
+Happiness Type                           := Peaceful
+Planet Type                              := Ice
+Atmosphere                               := Oxygen
+Design Name File                         := Nwafrica.txt
+Race Opt 1 Num Characteristics           := 2
+Race Opt 1 Characteristic 1 Type         := Defensiveness
+Race Opt 1 Characteristic 1 Amount       := 110
+Race Opt 1 Characteristic 2 Type         := Maintenance Aptitude
+Race Opt 1 Characteristic 2 Amount       := 110
+Race Opt 1 Num Advanced Traits           := 1
+Race Opt 1 Adv Trait 1                   := Propulsion Experts
+Race Opt 2 Num Characteristics           := 3
+Race Opt 2 Characteristic 1 Type         := Defensiveness 
+Race Opt 2 Characteristic 1 Amount       := 120
+Race Opt 2 Characteristic 2 Type         := Maintenance Aptitude
+Race Opt 2 Characteristic 2 Amount       := 110
+Race Opt 2 Characteristic 3 Type         := Construction Aptitude
+Race Opt 2 Characteristic 3 Amount       := 120
+Race Opt 2 Num Advanced Traits           := 1
+Race Opt 2 Adv Trait 1                   := Propulsion Experts
+Race Opt 3 Num Characteristics           := 3
+Race Opt 3 Characteristic 1 Type         := Defensiveness
+Race Opt 3 Characteristic 1 Amount       := 120
+Race Opt 3 Characteristic 2 Type         := Maintenance Aptitude
+Race Opt 3 Characteristic 2 Amount       := 110
+Race Opt 3 Characteristic 3 Type         := Construction Aptitude
+Race Opt 3 Characteristic 3 Amount       := 120
+Race Opt 3 Num Advanced Traits           := 3
+Race Opt 3 Adv Trait 1                   := Propulsion Experts
+Race Opt 3 Adv Trait 2                   := Hardy Industrialists
+Race Opt 3 Adv Trait 3                   := Advanced Storage Techniques
+
+=======================================================================================
+*END*
+=======================================================================================
+
