@@ -1,15 +1,23 @@
 
 var mothership
+var fighter
+
 var lasttime
+
 var field
 
 var planets
+var ships
 
 var delay
 
 
 function init(d) {
     mothership = ship('Terran', 40, 40, 20, 300, 50)
+    fighter = ship('Krill', 100, 40, 20, 300, 50)
+
+    ships = [mothership, fighter]
+
     lasttime = new Date().getTime()
     field = canvas('field')
 
@@ -17,9 +25,9 @@ function init(d) {
 
     document.getElementById('field').onclick = function clickhandle(ev) {
         if (!ev.ctrlKey)
-            mothership.bpoint(vec(ev.clientX, ev.clientY), vec(mothership.m_speed, 0))
+            fighter.add_target(mothership)
         else
-            mothership.waypoint(vec(ev.clientX, ev.clientY))
+            mothership.add_endpoint(vec(ev.clientX, ev.clientY))
     }
 
     run()
@@ -31,12 +39,13 @@ function run() {
 
     var ctx = canvas('field')
     ctx.clearRect(0, 0, 1000, 1000)
-    mothership.draw(field)
 
-    mothership.step(dt, field)
+    for (var i=0; i<ships.length; i++) {
+        ships[i].draw(field)
 
-    mothership.prestep(10)
-    mothership.select(field)
+        ships[i].step(dt, field)
+
+    }
 
     lasttime = nowtime
     setTimeout(run, 28 * delay)
@@ -67,9 +76,13 @@ function ship(race, x, y, mass, force, speed, hx, hy) {
         radsq: radsq,
 
         img:   image(race),
-        tasks: []
+        tasks: [],
+
     }
 
+    obj.stopdist = function(vel) {
+        return ((vel? (vel*vel) : this.vel.lensq())*this.mass) / (2*this.m_force)
+    }
 
     obj.draw = function(ctx) {
         ctx.save()
@@ -77,53 +90,6 @@ function ship(race, x, y, mass, force, speed, hx, hy) {
         ctx.rotate(angle(this.head, vec(0, -1)))
         ctx.drawImage(this.img, -18, -18, 36, 36)
         ctx.restore()
-    }
-
-    obj.select = function(ctx) {
-        if (!this.path)
-            return
-
-        ctx.beginPath()
-        ctx.strokeStyle = 'white'
-        ctx.moveTo(this.pos.x, this.pos.y)
-
-        for (var i=0; i<this.path.length; i++) {
-            ctx.lineTo(this.path[i].pos.x, this.path[i].pos.y)
-
-            old = this.path[i]
-        }
-
-        ctx.stroke()
-        ctx.closePath()
-    }
-
-    obj.prestep = function(time) {
-        this.path = []
-
-        var old = {
-            pos: this.pos,
-            vel: this.vel,
-            head: this.head,
-            tasks: this.tasks.slice(0)
-        }
-
-        for (var i=0; i<time*(1000/28); i++) {
-            this.step(28/(1000*delay))
-            this.path.push({
-                pos: this.pos,
-                vel: this.vel,
-                head: this.head,
-            })
-        }
-
-        this.pos = old.pos
-        this.vel = old.vel
-        this.head = old.head        
-        this.tasks = old.tasks
-    }
-
-    obj.poststep = function() {
-
     }
 
     obj.step = function(dt, debug) {
@@ -137,7 +103,7 @@ function ship(race, x, y, mass, force, speed, hx, hy) {
 
         if (this.tasks.length >= 1) {
             if (this.tasks[0].done(this, dt, debug))
-                this.tasks.splice(0, 1)
+                this.tasks.shift()
             else
                 dir = this.tasks[0].dir(this, dt, debug)
         }
@@ -207,7 +173,7 @@ function ship(race, x, y, mass, force, speed, hx, hy) {
         }
     }
 
-    obj.waypoint = function(targ) {
+    obj.add_waypoint = function(targ) {
         this.tasks.push({
             dir: function(sh, dt, debug) {
                 var dir = targ.sub(sh.pos)
@@ -232,10 +198,8 @@ function ship(race, x, y, mass, force, speed, hx, hy) {
         })
     }
 
-    obj.endpoint = function(targ) {
+    obj.add_endpoint = function(targ) {
         this.tasks.push({
-            stopdist: (this.m_speed*this.m_speed*this.mass) / (2*this.m_force),
-
             dir: function(sh, dt, debug) {
                 var dir = targ.sub(sh.pos)
 
@@ -248,17 +212,13 @@ function ship(race, x, y, mass, force, speed, hx, hy) {
 
                     debug.beginPath()
                     debug.strokeStyle="white"
-                    debug.arc(dir.x, dir.y, this.stopdist, 0, 2*Math.PI)
+                    debug.arc(dir.x, dir.y, sh.stopdist(sh.m_speed), 0, 2*Math.PI)
                     debug.stroke()
                     debug.closePath()
                 }
 
                 dir = dir.norm().scale(sh.m_speed)
-
-                if (distsq(sh.pos, targ) < this.stopdist*this.stopdist) {
-                    dir = dir.scale(dist(sh.pos, targ) / this.stopdist)
-                }
-
+                dir = dir.scale(dist(sh.pos, targ) / sh.stopdist(sh.m_speed))
                 dir = dir.sub(sh.vel).scale(sh.mass / dt)
 
                 return dir
@@ -270,52 +230,29 @@ function ship(race, x, y, mass, force, speed, hx, hy) {
         })
     }
 
-    obj.bpoint = function(targ, tvel) {
+    obj.add_target = function(enemy) {
         this.tasks.push({
             dir: function(sh, dt, debug) {
-                if (debug) {
-                    var dir = targ.sub(sh.pos)
+                var t = dist(sh.pos, enemy.pos)/sh.m_speed
+                var dir = enemy.pos.add(enemy.vel.scale(t))
+                dir = dir.sub(sh.pos)
 
+                if (debug) {
                     debug.beginPath()
                     debug.strokeStyle="purple"
                     debug.arc(dir.x, dir.y, 8, 0, 2*Math.PI)
                     debug.stroke()
                     debug.closePath()
-
-                    debug.beginPath()
-                    debug.strokeStyle="magenta"
-                    debug.moveTo(0,0)
-                    debug.bezierCurveTo(sh.vel.x*3, sh.vel.y*3,
-                                        dir.x-tvel.x*3, dir.y-tvel.y*3,
-                                        dir.x, dir.y)
-                    debug.stroke()
-                    debug.closePath()
                 }
 
-                var dir = hermitep(sh.pos, sh.vel, targ, tvel, 0).scale(dt*dt).add( 
-                          hermitepp(sh.pos, sh.vel, targ, tvel, 0).scale(dt*dt/2))
-
-                dir = hermite_dist(sh.pos, sh.vel, targ, tvel, dir.length())
-
-                if (debug) {
-                    debug.beginPath()
-                    debug.strokeStyle="purple"
-                    debug.arc(hermite(sh.pos, sh.vel, targ, tvel, dir).sub(sh.pos).x, 
-                              hermite(sh.pos, sh.vel, targ, tvel, dir).sub(sh.pos).y, 
-                              8, 0, 2*Math.PI)
-                    debug.stroke()
-                    debug.closePath()
-                }
-
-                dir = hermitep(sh.pos, sh.vel, targ, tvel, dir)
-
+                dir = dir.scale(1/t)
                 dir = dir.sub(sh.vel).scale(sh.mass / dt)
 
                 return dir
             },
 
             done: function(sh, dt, debug) {
-                return (targ.sub(sh.pos).lensq() < 5)
+                return (enemy.pos.sub(sh.pos).lensq() < 5)
             }
         })
     }
