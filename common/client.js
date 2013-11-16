@@ -55,13 +55,13 @@ function draw_image(ctx, image) {
 function render(ctx) {
     for (var z = 0; z < 10; z++) {
         for (var i = 0; i < elements.length; i++) {
-            if ((elements[i].z == z || (!elements[i].z && !z)) &&
+            if (elements[i] && (elements[i].z == z || (!elements[i].z && !z)) &&
                 elements[i].image)
                 draw_image(ctx, elements[i])
         }
 
         for (var i = 0; i < images.length; i++) {
-            if (images[i].z == z || (!images[i].z && !z))
+            if (images[i] && (images[i].z == z || (!images[i].z && !z)))
                 draw_image(ctx, images[i])
         }
     }
@@ -74,6 +74,8 @@ function click(event) {
     var clicked = false
 
     for (var i = 0; i < elements.length; i++) {
+        if (!elements[i]) continue
+
         var ex = elements[i].pos.x
         var ey = elements[i].pos.y
 

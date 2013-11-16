@@ -1,19 +1,12 @@
 
 current.init = game_init
-current.step = game_step
-current.click = game_click
 
-var mothership = new Ship('Terran', 10, 300, 40, 40, 50)
 
-function game_click(pos) {
-    mothership.add_endpoint(pos)
-}
 
 function game_init() {
-    ui_init(mothership)
-    mothership.select()
+    ui_init()
 
-    images.push(mothership.image)
+//    images.push(mothership.image)
 
     images.push({
         image: effect_image("data/races/Terran/Terran_BigExplosion.bmp", 7),
@@ -23,14 +16,95 @@ function game_init() {
     })
 
     images.push({
-        image: gimmie("data/misc/Torps.bmp",2),
+        image: gimmie("data/misc/Lazers.bmp",11),
         pos: new Vec(600, 100),
+        width: 50,
+        height: 50,
+    })
+
+    images.push({
+        image: pewpew("data/misc/Lazers.bmp",11,5),
+        pos: new Vec(700, 100),
         width: 50,
         height: 50,
     })
 }
 
+var sim_time = 0
 
-function game_step(dt) {
-    mothership.step(dt, canvas('field'))
+var S = 0
+
+function sim(dt) {
+    for (var i = 0; i < state.player.ships.length; i++) {
+        state.player.ships[i].step(dt)
+    }
+
+    for (var i = 0; i < state.others.length; i++) {
+        for (var j = 0; j < state.others[i].ships.length; j++) {
+            state.others[i].ships[j].step(dt)
+        }
+    }
+
+    sim_time += dt
+    if (sim_time >= state.player.time) {
+        current.step = function(){}
+
+        if (S == 1)
+            fromjson(currentstate)
+    }
+}
+
+function simulate() {
+    S = 1
+    no_select()
+    currentstate = tojson()
+    sim_time = 0
+    current.step = sim
+}
+
+function replay() {
+    S = 2
+    no_select()
+    currentstate = tojson()
+    fromjson(prevstate)
+    sim_time = 0
+    current.step = sim
+}
+
+function play() {
+    S = 3
+    no_select()
+    sim_time = 0
+    current.step = sim
+}
+
+function closest(pos) {
+    var min = Infinity
+    var target
+
+    for (var i = 0; i < state.others.length; i++) {
+        for (var j = 0; j < state.others[i].ships.length; j++) {
+            if (state.others[i].race == state.player.race)
+                continue
+
+            var d = pos.distsq(state.others[i].ships[j].pos)
+
+            if (d < min) {
+                min = d
+                target = state.others[i].ships[j]
+                target.race = state.others[i].race
+                console.log(target.race)
+                target.ind = j
+            }
+        }
+    }
+
+    return target
+}
+
+function missile(pos, target) {
+    console.log('pew pew pew')
+    var m = new Ship('!' + state.player.race, 1, 300, 40, pos.x, pos.y)
+    m.task = ['target', target.race, target.ind]
+    state.player.ships.push(m)
 }

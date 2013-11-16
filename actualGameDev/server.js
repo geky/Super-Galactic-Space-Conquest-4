@@ -26,11 +26,54 @@ function handler (req, res) {
     })
 }
 
-/*io.sockets.on('connection', function (socket) {
-    socket.emit('news', { hello: 'world' })
+races = [
+ //   'Abbidon', 
+    'Amonkrie', 
+    'Cryslonite', 
+  //  'CueCappa', 
+    'Drushocka', 
+    'Eee', 
+  //  'Fazrah', 
+    'Jraenar',
+    'Krill',
+    'Norak',
+ //   'Phong',
+//    'Piundon',
+    'Praetorian',
+    'Sallega',
+  //  'Sergetti',
+    'Terran',
+   // 'Toltayan',
+  //  'UkraTal',
+    'Xiati',
+    'XiChung'
+]
 
-    socket.on('my other event', function (data) {
-        console.log(data)
+var players = 0
+var states = []
+
+io.sockets.on('connection', function (socket) {
+    var me = players;
+    players++;
+
+    socket.emit('new', {
+        race: races[me % races.length],
+        money: 10000,
+        me: me
+    })
+
+    socket.on('submit', function (data) {
+        states.push(data)
+        console.log("Submit " + states.length + " of " + players)
+
+        if (states.length == players) {
+            console.log("Taking Turn")
+            io.sockets.emit('turn', states)
+            states = []
+        }
     });
+
+    socket.on('disc', function() {
+        players--;
+    })
 });
-*/
