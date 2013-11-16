@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Super Galactic Space Conquest 4!</title>
+    <script src="client.js"></script>
+    <script src="lib/vec.js"></script>
+    <script src="lib/ship.js"></script>
+    <script src="ui.js"></script>
+    <script src="combat.js"></script>
+    <script src="game.js"></script>
+    <script>
+        function canvasResize() {
+            var canvas = document.getElementById("field")
+            console.log(canvas)
+            var ctx = canvas.getContext("2d")
+            canvas.width = window.innerWidth * 0.95
+            canvas.height = window.innerHeight * 0.95
+        }
+    </script>
+    <style>
+        body {
+            background-image: url('data/misc/Starmap.bmp');
+            background-repeat: repeat;
+        }
+    </style>
+</head>
+<body onload="canvasResize(); init()">
+    <canvas id=field  onclick="click(event); canvasResize()">
+        HTML 5 is not supported
+    </canvas>
+</body>
+</html>

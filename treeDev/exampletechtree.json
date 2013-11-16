@@ -1,0 +1,5 @@
+{
+    science: { research_cost: 10, components: ["pizza", "science2"], unlocks: ["sicence2"],
+    
+    science2: blablabla
+}
