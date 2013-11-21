@@ -8,14 +8,14 @@ function game_init() {
 
 //    images.push(mothership.image)
 
-    images.push({
+/*    images.push({
         image: effect_image("data/races/Terran/Terran_BigExplosion.bmp", 7),
         pos: new Vec(300, 100),
         width: 50,
         height: 50,
-    })
+    })*/
 
-    images.push({
+/*    images.push({
         image: gimmie("data/misc/Lazers.bmp",11),
         pos: new Vec(600, 100),
         width: 50,
@@ -27,7 +27,7 @@ function game_init() {
         pos: new Vec(700, 100),
         width: 50,
         height: 50,
-    })
+    })*/
 }
 
 var sim_time = 0
@@ -84,9 +84,6 @@ function closest(pos) {
 
     for (var i = 0; i < state.others.length; i++) {
         for (var j = 0; j < state.others[i].ships.length; j++) {
-            if (state.others[i].race == state.player.race)
-                continue
-
             var d = pos.distsq(state.others[i].ships[j].pos)
 
             if (d < min) {
@@ -102,9 +99,21 @@ function closest(pos) {
     return target
 }
 
-function missile(pos, target) {
-    console.log('pew pew pew')
-    var m = new Ship('!' + state.player.race, 1, 300, 40, pos.x, pos.y)
-    m.task = ['target', target.race, target.ind]
-    state.player.ships.push(m)
+/*function missile(race, pos, target) {
+    console.log('pew pew pew ' + pos.x + " " + pos.y)
+    var m = new Ship('!' + race, 1, 300, 40, pos.x, pos.y)
+    m.task = ['target', target.r, target.ind]
+    rget(target.r).ships.push(m)
 }
+
+rget = function(race) {
+    if (race == state.player.race)
+        return state.player
+
+    for (var i = 0 ; i < state.others.length; i ++) {
+        if (state.others[i].race == race)
+            return state.others[i]
+    }
+
+    return state.player
+}*/

@@ -1,44 +1,43 @@
-var lasttime
-var delay
 
-current = {
+// Game object represents current game
+var game = {
     init: function() {},
     step: function() {},
-    click: function() {}
+    render: function() {},
+
+    width: window.innerWidth * 0.95,
+    height: window.innerHeight * 0.95,
+    debug: true,
+
+    buttons: [],
+    click: function() {},
 }
 
-elements = []
-images = []
-lines = []
+// Game execution functions
+function init() {
+    game.lasttime = new Date().getTime()
+    game.delay = 28
 
-
-function init(d) {
-    lasttime = new Date().getTime()
-    delay = d ? d : 1
-
-    current.init()
-
-    document.getElementById('field').onclick = click
+    game.init()
 
     run()
 }
 
 function run() {
     var nowtime = new Date().getTime()
-    var dt = (nowtime - lasttime)/(1000 * delay)
+    var dt = (nowtime - game.lasttime)/(1000 * delay)
+    var ctx = canvas('game')
 
-    var ctx = canvas('field')
-    ctx.clearRect(0, 0, window.innerWidth*0.95, window.innerHeight*0.95)
+    ctx.clearRect(0, 0, game.width, game.height)
 
-    render(ctx)
+    game.render(ctx)
+    game.step(dt)
 
-    current.step(dt)
-
-
-    lasttime = nowtime
-    setTimeout(run, 28 * delay)
+    game.lasttime = nowtime
+    setTimeout(run, game.delay)
 }
 
+////
 function draw_image(ctx, image) {
     if (!image.image)
         return
@@ -51,7 +50,7 @@ function draw_image(ctx, image) {
                   image.width, image.height)
     ctx.restore()
 }
-
+////
 function render(ctx) {
     for (var z = 0; z < 10; z++) {
         for (var i = 0; i < elements.length; i++) {
@@ -143,6 +142,7 @@ function image(name) {
     var img = document.createElement('img')
     img.src = name
 
+    // replace all black pixels with transparent
     img.onload = function() {
         var ctx = canvas(img.width, img.height)
         ctx.drawImage(img, 0, 0)

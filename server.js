@@ -1,10 +1,14 @@
 var app = require('http').createServer(handler)
+
+app.listen(process.argv[2])
+console.log("Started SGSC4 on port " + process.argv[2])
+
 var io = require('socket.io').listen(app)
 var fs = require('fs')
 
-app.listen(8080)
 
 var homedir = __dirname + '/'
+
 
 function handler (req, res) {
     console.log('req: ' + req.url)
@@ -21,12 +25,57 @@ function handler (req, res) {
         }
     })
 }
+/*
+races = [
+ //   'Abbidon', 
+    'Amonkrie', 
+    'Cryslonite', 
+  //  'CueCappa', 
+    'Drushocka', 
+    'Eee', 
+  //  'Fazrah', 
+    'Jraenar',
+    'Krill',
+    'Norak',
+ //   'Phong',
+//    'Piundon',
+    'Praetorian',
+    'Sallega',
+  //  'Sergetti',
+    'Terran',
+   // 'Toltayan',
+  //  'UkraTal',
+    'Xiati',
+    'XiChung'
+]
 
-/*io.sockets.on('connection', function (socket) {
-    socket.emit('news', { hello: 'world' })
+var players = 0
+var states = []
 
-    socket.on('my other event', function (data) {
-        console.log(data)
+io.sockets.on('connection', function (socket) {
+    var me = players;
+    players++;
+
+    socket.emit('new', {
+        race: races[me % races.length],
+        money: 10000,
+        me: me
+    })
+
+    socket.on('submit', function (data) {
+        states.push(data)
+        console.log("Submit " + states.length + " of " + players)
+
+        if (states.length == players) {
+            console.log("Taking Turn")
+            console.log(states)
+            io.sockets.emit('turn', states)
+            states = []
+        }
     });
+
+    socket.on('disc', function() {
+        players--;
+    })
 });
 */

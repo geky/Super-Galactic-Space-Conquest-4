@@ -2,19 +2,17 @@
 <html>
 <head>
     <title>Super Galactic Space Conquest 4!</title>
-    <script src="client.js"></script>
-    <script src="lib/vec.js"></script>
-    <script src="lib/ship.js"></script>
-    <script src="game.js"></script>
     <style>
         body {
             background-image: url('data/misc/Starmap.bmp');
             background-repeat: repeat;
         }
     </style>
+    <script src="vecmath.js"></script>
+    <script src="engine.js"></script>
 </head>
 <body onload="init()">
-    <canvas id="game"  width=1000 height=1000>
+    <canvas id=field width=1000 height=1000 onclick="clickhandle(event);">
         HTML 5 is not supported
     </canvas>
 </body>

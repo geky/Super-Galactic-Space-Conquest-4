@@ -31,7 +31,7 @@ function set_selected(ship) {
 
 current.click = function(pos) {
     if (selected)
-        selected.task = ['endpoint', pos.x, pos.y]
+        selected.task = ['waypoint', pos.x, pos.y]
 }
 
 function no_select(){

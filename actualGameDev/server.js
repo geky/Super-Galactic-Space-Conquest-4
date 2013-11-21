@@ -68,6 +68,7 @@ io.sockets.on('connection', function (socket) {
 
         if (states.length == players) {
             console.log("Taking Turn")
+            console.log(states)
             io.sockets.emit('turn', states)
             states = []
         }

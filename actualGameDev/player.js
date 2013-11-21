@@ -159,13 +159,18 @@ function fromjson(json) {
 
 var socket = io.connect(window.location.href);
 
+window.onbeforeunload = function() {
+    socket.send({disc:0})
+    console.log("disconnecting")
+}
+
 socket.on('new', function (data) {
     state.player.race = data['race']
     state.player.money = data['money']
     state.player.me = data['me']
 
-    mothership = new Ship(state.player.race, 10, 300, 40, 40+40*state.player.me, 50)
-    othership = new Ship(state.player.race, 10, 300, 40, 40+40*state.player.me, 150)
+    mothership = new Ship(state.player.race, 10, 300, 40, (40+600*state.player.me) % 1000, 50)
+    othership = new Ship(state.player.race, 10, 300, 40, (40+600*state.player.me) % 1000, 250)
     //mothership.select()
     /*images.push(mothership.image)
     elements.push(mothership.button)
