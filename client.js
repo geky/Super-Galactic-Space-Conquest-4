@@ -1,46 +1,66 @@
 
-// Game object represents the current game
-var game = {
-    init: pass,
-    step: pass,
-    render: pass,
-    click: pass,
-
-    width: window.innerWidth * 0.95,
-    height: window.innerHeight * 0.95,
+// This object represents a page usage
+var page = function() {
+    return {
+        init: pass,
+        resize:pass,
+        step: pass,
+        render: pass,
+        click: pass,
+        deinit: pass,
+    }
 }
+
+var current = page()
 
 // Game wrapper functions
 function init() {
     debug(true)
 
-    document.getElementById('game').onclick = click
+    current = window[location.hash.substr(1) || 'game']
 
-    game.lasttime = new Date().getTime()
-    game.delay = 1
+    current.ctx = canvas('game')
+    current.ctx.canvas.onclick = click
+    window.onresize = resize
 
-    game.init()
+    current.lasttime = new Date().getTime()
+    current.delay = 1
 
+    current.init()
+
+    resize()
     run()
+}
+
+function resize() {
+    var ctx = current.ctx
+    ctx.width = ctx.canvas.width = window.innerWidth
+    ctx.height = ctx.canvas.height = window.innerHeight
 }
 
 function run() {
     var nowtime = new Date().getTime()
-    var dt = (nowtime - game.lasttime)/(1000 * game.delay)
-    var ctx = canvas('game')
+    var dt = (nowtime - current.lasttime)/1000
+    var ctx = current.ctx
 
     ctx.clearRect(0, 0, ctx.width, ctx.height)
 
-    game.render(ctx)
-    game.step(dt)
+    current.render(ctx)
+    current.step(dt)
 
-    game.lasttime = nowtime
-    setTimeout(run, 28*game.delay)
+    current.lasttime = nowtime
+    current.pid = requestFrame(run)
 }
 
 function click(event) {
-    game.click(vec(event.clientX, event.clientY))
+    current.click(vec(event.clientX, event.clientY))
 }
+
+function deinit() {
+    current.deinit()
+    cancelFrame(current.pid)
+}
+    
 
 // Nop function
 function pass() {}
@@ -71,7 +91,7 @@ function canvas(w, h) {
         var img = images[path]
 
         if (!img) {
-            img = load_image(path)
+            img = loadImage('data/' + path)
             images[path] = img
         }
 
@@ -85,7 +105,7 @@ function canvas(w, h) {
     return ctx
 }
 
-function load_image(path) {
+function loadImage(path) {
     var img = document.createElement('img')
     img.src = path
 
@@ -112,13 +132,19 @@ function load_image(path) {
     return img
 }
 
-function load_file(path) {
+function loadFile(path) {
     var client = new XMLHttpRequest()
     client.open('GET', path)
     client.send()
     
     while (!client.status) {}
     return eval(client.responseText)
+}
+
+function gotocanvas(name) {
+    deinit()
+    location.replace('#' + name)
+    init()
 }
 
 // Debugging object
@@ -129,7 +155,9 @@ function debug(yes) {
         var ctx = canvas('game')
         console.log('Debugging Enabled')
 
-        debug.log = console.log
+        debug.log = function(args) {
+            console.log(args)
+        }
 
         debug.push = function(pos) {
             ctx.save()
@@ -165,3 +193,21 @@ function debug(yes) {
         debug.pop = pass
     }
 }
+
+var requestFrame = (
+    window.requestAnimationFrame       ||
+    window.webkitRequestAnimationFrame ||
+    window.mozRequestAnimationFrame    ||
+    window.oRequestAnimationFrame      ||
+    window.msRequestAnimationFrame     ||
+    function(callback) { return setTimeout(callback, 28) } 
+);
+
+var cancelFrame = (
+    window.cancelAnimationFrame       ||
+    window.webkitCancelAnimationFrame ||
+    window.mozCancelAnimationFrame    ||
+    window.oCancelAnimationFrame      ||
+    window.msCancelAnimationFrame     ||
+    function(pid) { return clearTimeout(pid) }
+)

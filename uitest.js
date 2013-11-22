@@ -1,9 +1,11 @@
 
-var game = (function() {
+var uitest = (function() {
+    var racename = 'Krill'
+
     var testrace = {
         designs: [
             {
-                image: 'races/Terran/Terran_Mini_FighterSmall.bmp',
+                image: 'races/'+racename+'/'+racename+'_Mini_FighterSmall.bmp',
                 rad: 18,
                 width: 36,
                 height: 36,
@@ -14,7 +16,7 @@ var game = (function() {
             },
 
             {
-                image: 'races/Terran/Terran_Mini_Carrier.bmp',
+                image: 'races/'+racename+'/'+racename+'_Mini_Carrier.bmp',
                 rad: 18,
                 width: 36,
                 height: 36,

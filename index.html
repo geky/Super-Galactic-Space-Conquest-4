@@ -6,15 +6,23 @@
     <script src="lib/vec.js"></script>
     <script src="lib/ship.js"></script>
     <script src="game.js"></script>
+    <script src="uitest.js"></script>
     <style>
-        body {
+        html, body {
+            background-color: black;
+            overflow: hidden;
+            margin: 0;
+        }
+
+        canvas {
             background-image: url('data/misc/Starmap.bmp');
             background-repeat: repeat;
+            margin: 0;
         }
     </style>
 </head>
 <body onload="init()">
-    <canvas id="game"  width=1000 height=1000>
+    <canvas id="game"  width=1000 height=1000 onclick="click()">
         HTML 5 is not supported
     </canvas>
 </body>
