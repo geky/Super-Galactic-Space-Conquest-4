@@ -1,0 +1,81 @@
+=======================================================================================
+AI DATA FILE - Xiati
+=======================================================================================
+
+Demeanor:
+  Psychotic, Violent, Aggressive, Impulsive, Neutral, Friendly, 
+  Honorable, Serene
+
+Culture:
+  Neutral, Berzerkers, Warriors, Traders, Politicians, Artisans, 
+  Scientists, Workers, Schemers, Zealots, Engineers, Merchants, 
+  Renegades, Xenophobes
+
+Planet Type:
+  Rock, Ice, Gas Giant
+
+Atmosphere:
+  None, Methane, Oxygen, Hydrogen, Carbon Dioxide
+
+Characteristics:
+  Physical Strength, Intelligence, Cunning, Environmental Resistance,
+  Reproduction, Happiness, Aggressiveness, Defensiveness, Political Savvy,
+  Mining Aptitude, Farming Aptitude, Refining Aptitude, Construction Aptitude,
+  Repair Aptitude, Maintenance Aptitude
+
+Adv Traits:
+  Advanced Power Conservation, Mechanoids, Lucky, Natural Merchants, 
+  Propulsion Experts, Ancient Race, Advanced Storage Techniques, 
+  Hardy Spacefarrers, Psychic, Deeply Religious, Temporal Knowledge, 
+  Crystallurgy, Emotionless
+
+
+=======================================================================================
+*BEGIN*
+=======================================================================================
+
+Name                                     := Xiati
+Description                              := The Xiati are aggressive and known as devious schemers. They are known to possess Temporal Manipulation technology.
+Empire Name                              := Xiati
+Empire Type                              := Empire
+Emperor Name                             := Tax'renath
+Emperor Title                            := Emperor
+Biological Description                   := The Xiati are a humanoid race which evolved on an Oxygen world. They stand approximately 2 meters tall and are dull brown in appearance. Their average lifespan is approximately 70 years, and they are striking for their dark black eyes. Of additional note is the high level of cybernetic enhancement which the Xiati perform on themselves. It is estimated that 30% of a Xiati's mass is made up of non-organic technology.
+Society Description                      := The Xiati are an archetypal empire dedicated to spreading its control across the galaxy. The government keeps all of its citizens in line and allows no dissention. The society is ruled absolutely by the current emperor, with new emperors coming to power only after the current one has aged to ineptitude. There are the occasional rebellions, but they are put down quickly and violently. Most of the galaxy has heard of the infamous Omicron Theta rebellion during which 30 million Xiati were bombed out of existence by imperial ships. Rumor has it that only 100,000 miners at the colony were actually refusing to work. 
+General History Description              := Orginally the Xiati were not considered much of a threat to other species. They were intelligent and agressive, but their technology was a bit dated. That all changed when a Xiati scientist discovered Temporal Manipulation. This new technology allowed the Xiati to manipulate time itself. With an arsenal of devastating temporal weapons at their disposal, the Xiati became a force to be reckoned with.
+Demeanor                                 := Aggressive
+Culture                                  := Schemers
+Happiness Type                           := Peaceful
+Planet Type                              := Rock
+Atmosphere                               := Oxygen
+Design Name File                         := Ussr.txt
+Race Opt 1 Num Characteristics           := 1
+Race Opt 1 Characteristic 1 Type         := Refining Aptitude
+Race Opt 1 Characteristic 1 Amount       := 120
+Race Opt 1 Num Advanced Traits           := 1
+Race Opt 1 Adv Trait 1                   := Temporal Knowledge
+Race Opt 2 Num Characteristics           := 3
+Race Opt 2 Characteristic 1 Type         := Refining Aptitude
+Race Opt 2 Characteristic 1 Amount       := 120
+Race Opt 2 Characteristic 2 Type         := Cunning 
+Race Opt 2 Characteristic 2 Amount       := 120
+Race Opt 2 Characteristic 3 Type         := Mining Aptitude
+Race Opt 2 Characteristic 3 Amount       := 120
+Race Opt 2 Num Advanced Traits           := 1
+Race Opt 2 Adv Trait 1                   := Temporal Knowledge
+Race Opt 3 Num Characteristics           := 3
+Race Opt 3 Characteristic 1 Type         := Refining Aptitude
+Race Opt 3 Characteristic 1 Amount       := 120
+Race Opt 3 Characteristic 2 Type         := Cunning 
+Race Opt 3 Characteristic 2 Amount       := 120
+Race Opt 3 Characteristic 3 Type         := Mining Aptitude
+Race Opt 3 Characteristic 3 Amount       := 120
+Race Opt 3 Num Advanced Traits           := 3
+Race Opt 3 Adv Trait 1                   := Temporal Knowledge
+Race Opt 3 Adv Trait 2                   := Natural Merchants
+Race Opt 3 Adv Trait 3                   := Advanced Power Conservation
+
+=======================================================================================
+*END*
+=======================================================================================
+

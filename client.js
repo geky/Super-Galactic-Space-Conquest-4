@@ -53,7 +53,7 @@ function run() {
 }
 
 function click(event) {
-    current.click(vec(event.clientX, event.clientY))
+    current.click(vec(event.clientX, event.clientY), event)
 }
 
 function deinit() {

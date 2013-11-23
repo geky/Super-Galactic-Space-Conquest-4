@@ -1,0 +1,96 @@
+=======================================================================================
+AI DATA FILE - Praetorian
+=======================================================================================
+
+Demeanor:
+  Psychotic, Violent, Aggressive, Impulsive, Neutral, Friendly, 
+  Honorable, Serene
+
+Culture:
+  Neutral, Berzerkers, Warriors, Traders, Politicians, Artisans, 
+  Scientists, Workers, Schemers, Zealots, Engineers, Merchants, 
+  Renegades, Xenophobes
+
+Planet Type:
+  Rock, Ice, Gas Giant
+
+Atmosphere:
+  None, Methane, Oxygen, Hydrogen, Carbon Dioxide
+
+Characteristics:
+  Physical Strength, Intelligence, Cunning, Environmental Resistance,
+  Reproduction, Happiness, Aggressiveness, Defensiveness, Political Savvy,
+  Mining Aptitude, Farming Aptitude, Refining Aptitude, Construction Aptitude,
+  Repair Aptitude, Maintenance Aptitude
+
+Adv Traits:
+  Advanced Power Conservation, Mechanoids, Lucky, Natural Merchants, 
+  Propulsion Experts, Ancient Race, Advanced Storage Techniques, 
+  Hardy Spacefarrers, Psychic, Deeply Religious, Temporal Knowledge, 
+  Crystallurgy, Emotionless
+
+
+=======================================================================================
+*BEGIN*
+=======================================================================================
+
+Name                                     := Praetorian
+Description                              := The Praetorian are a reclusive race that are known for their advanced resource extracting abilities. 
+Empire Name                              := Praetorian
+Empire Type                              := Imperium
+Emperor Name                             := Zarnak
+Emperor Title                            := Emperor
+Biological Description                   := The Praetorian are a bulbous organic species that are hideously ugly. Due to their semi-solid form, they have enhanced their bodies with artificial exoskeletons. Without the technological physical enhancements, the Praetorian move very slowly and have difficulty sensing their environment. The Paretorian have an average lifespan of 70 years.
+Society Description                      := The Praetorian are organized into an imperial government with an emperor considered to be the son of god. The people are in absolute thrall to the emperor and will do anything that he commands. Their race tends to be very reclusive and solitary. Due to their horrible appearance, they find relations with other races to be very difficult. 
+General History Description              := The history of the the Praetorian has been very sparse. Few races will interact with them because of either their appearance or the lofty nature of their emperor. They have devoted much of their time to engineering pursuits and improving their exoskeletons. 
+Demeanor                                 := Serene
+Culture                                  := Engineers
+Happiness Type                           := Peaceful
+Planet Type                              := Rock
+Atmosphere                               := Oxygen
+Design Name File                         := Asia.txt
+Race Opt 1 Num Characteristics           := 4
+Race Opt 1 Characteristic 1 Type         := Mining Aptitude
+Race Opt 1 Characteristic 1 Amount       := 120
+Race Opt 1 Characteristic 2 Type         := Farming Aptitude
+Race Opt 1 Characteristic 2 Amount       := 120
+Race Opt 1 Characteristic 3 Type         := Refining Aptitude
+Race Opt 1 Characteristic 3 Amount       := 120
+Race Opt 1 Characteristic 4 Type         := Construction Aptitude
+Race Opt 1 Characteristic 4 Amount       := 120
+Race Opt 1 Num Advanced Traits           := 0
+Race Opt 2 Num Characteristics           := 6
+Race Opt 2 Characteristic 1 Type         := Mining Aptitude
+Race Opt 2 Characteristic 1 Amount       := 120
+Race Opt 2 Characteristic 2 Type         := Farming Aptitude
+Race Opt 2 Characteristic 2 Amount       := 120
+Race Opt 2 Characteristic 3 Type         := Refining Aptitude
+Race Opt 2 Characteristic 3 Amount       := 120
+Race Opt 2 Characteristic 4 Type         := Construction Aptitude
+Race Opt 2 Characteristic 4 Amount       := 120
+Race Opt 2 Characteristic 5 Type         := Repair Aptitude
+Race Opt 2 Characteristic 5 Amount       := 120
+Race Opt 2 Characteristic 6 Type         := Maintenance Aptitude
+Race Opt 2 Characteristic 6 Amount       := 110
+Race Opt 2 Num Advanced Traits           := 0
+Race Opt 3 Num Characteristics           := 6
+Race Opt 3 Characteristic 1 Type         := Mining Aptitude
+Race Opt 3 Characteristic 1 Amount       := 120
+Race Opt 3 Characteristic 2 Type         := Farming Aptitude
+Race Opt 3 Characteristic 2 Amount       := 120
+Race Opt 3 Characteristic 3 Type         := Refining Aptitude
+Race Opt 3 Characteristic 3 Amount       := 120
+Race Opt 3 Characteristic 4 Type         := Construction Aptitude
+Race Opt 3 Characteristic 4 Amount       := 120
+Race Opt 3 Characteristic 5 Type         := Repair Aptitude
+Race Opt 3 Characteristic 5 Amount       := 120
+Race Opt 3 Characteristic 6 Type         := Maintenance Aptitude
+Race Opt 3 Characteristic 6 Amount       := 110
+Race Opt 3 Num Advanced Traits           := 2
+Race Opt 3 Adv Trait 1                   := Advanced Power Conservation
+Race Opt 3 Adv Trait 2                   := Natural Merchants
+
+=======================================================================================
+*END*
+=======================================================================================
+

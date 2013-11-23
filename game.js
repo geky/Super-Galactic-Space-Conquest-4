@@ -3,18 +3,18 @@ var game = (function() {
     var testrace = {
         designs: [
             {
-                image: 'races/Terran/Terran_Mini_FighterSmall.bmp',
+                image: 'races/terran/terran_mini_fightersmall.bmp',
                 rad: 18,
                 width: 36,
                 height: 36,
 
                 mass: 100,
-                force: 100000,
+                force: 200000,
                 speed: 1000,
             },
 
             {
-                image: 'races/Terran/Terran_Mini_Carrier.bmp',
+                image: 'races/terran/terran_mini_carrier.bmp',
                 rad: 18,
                 width: 36,
                 height: 36,
@@ -43,6 +43,14 @@ var game = (function() {
 
     var selected = testrace.ships[0]
 
+    for (var i = 0; i < 1000; i++) {
+        testrace.ships.push(
+            ship(0, vec(440 + i*100, 40)),
+            ship(0, vec(440 + i*100, 80)),
+            ship(0, vec(440 + i*100, 120))
+        )
+   }
+
     var game = page()
 
     game.step = function(dt) {
@@ -64,20 +72,29 @@ var game = (function() {
     game.click = function(pos) {
         var clicked = false
 
-        for (var i = 0 ; i < testrace.ships.length; i++) {
-            var sh = testrace.ships[i]
-            var des = testrace.designs[sh.des]
-
-            if (vec.distsq(pos, sh.pos) < des.rad*des.rad) {
-                selected = sh
-                clicked = true
+        if (event.ctrlKey) {
+            for (var i = 0; i < testrace.ships.length; i++) {
+                var sh = testrace.ships[i]
+                sh.task = 1
+                sh.target = pos
             }
-        }
+            debug.log(pos)
+        } else {
+            for (var i = 0 ; i < testrace.ships.length; i++) {
+                var sh = testrace.ships[i]
+                var des = testrace.designs[sh.des]
 
-        if (!clicked) {
-            selected.task = 2
-            selected.target = pos
-            debug.log(selected.target)
+                if (vec.distsq(pos, sh.pos) < des.rad*des.rad) {
+                    selected = sh
+                    clicked = true
+                }
+            }
+
+            if (!clicked) {
+                selected.task = 2
+                selected.target = pos
+                debug.log(selected.target)
+            }
         }
     }
 

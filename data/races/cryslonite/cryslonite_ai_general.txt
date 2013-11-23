@@ -1,0 +1,83 @@
+=======================================================================================
+AI DATA FILE - Cryslonite
+=======================================================================================
+
+Demeanor:
+  Psychotic, Violent, Aggressive, Impulsive, Neutral, Friendly, 
+  Honorable, Serene
+
+Culture:
+  Neutral, Berzerkers, Warriors, Traders, Politicians, Artisans, 
+  Scientists, Workers, Schemers, Zealots, Engineers, Merchants, 
+  Renegades, Xenophobes
+
+Planet Type:
+  Rock, Ice, Gas Giant
+
+Atmosphere:
+  None, Methane, Oxygen, Hydrogen, Carbon Dioxide
+
+Characteristics:
+  Physical Strength, Intelligence, Cunning, Environmental Resistance,
+  Reproduction, Happiness, Aggressiveness, Defensiveness, Political Savvy,
+  Mining Aptitude, Farming Aptitude, Refining Aptitude, Construction Aptitude,
+  Repair Aptitude, Maintenance Aptitude
+
+Adv Traits:
+  Advanced Power Conservation, Mechanoids, Lucky, Natural Merchants, 
+  Propulsion Experts, Ancient Race, Advanced Storage Techniques, 
+  Hardy Spacefarrers, Psychic, Deeply Religious, Temporal Knowledge, 
+  Crystallurgy, Emotionless
+
+
+=======================================================================================
+*BEGIN*
+=======================================================================================
+
+Name                                     := Cryslonite Imperium
+Description                              := A vicious race of sentient crystalline lifeforms.  
+Empire Name                              := Cryslonite
+Empire Type                              := Imperium
+Emperor Name                             := Zexlak
+Emperor Title                            := First One
+Biological Description                   := The Cryslonite are a race of sentient crystals that can manipulate their surroundings with directed energy waves. Their bodies form natural conducters for solar and radioactive energy. They reproduce through seperating a portion of their own bodies off, which later forms into a new individual. They have an average life span of 5 years. 
+Society Description                      := The Cryslonite have a society which is based on absolute understanding. Through direct communication via energy pulses, all of the cryslonite are always in contact with each other. They have no need for leaders or any other other government organization. They are always in agreement and always direct in their actions. 
+General History Description              := The Crysolnite are considered genocidal by most of the galaxy as they do not recognize any other lifeform but their own. Though they may engage in limited communication from time to time, they view biological lifeforms as merely an organic form. They have no problems with exterminating organic infections as needed. 
+Demeanor                                 := Psychotic
+Culture                                  := Berzerkers
+Happiness Type                           := Peaceful
+Planet Type                              := Gas Giant
+Atmosphere                               := Hydrogen
+Design Name File                         := Middeast.txt
+Race Opt 1 Num Characteristics           := 2
+Race Opt 1 Characteristic 1 Type         := Mining Aptitude
+Race Opt 1 Characteristic 1 Amount       := 110
+Race Opt 1 Characteristic 2 Type         := Refining Aptitude
+Race Opt 1 Characteristic 2 Amount       := 110
+Race Opt 1 Num Advanced Traits           := 1
+Race Opt 1 Adv Trait 1                   := Crystallurgy
+Race Opt 2 Num Characteristics           := 3
+Race Opt 2 Characteristic 1 Type         := Mining Aptitude
+Race Opt 2 Characteristic 1 Amount       := 120
+Race Opt 2 Characteristic 2 Type         := Refining Aptitude
+Race Opt 2 Characteristic 2 Amount       := 120
+Race Opt 2 Characteristic 3 Type         := Reproduction 
+Race Opt 2 Characteristic 3 Amount       := 120
+Race Opt 2 Num Advanced Traits           := 1
+Race Opt 2 Adv Trait 1                   := Crystallurgy
+Race Opt 3 Num Characteristics           := 3
+Race Opt 3 Characteristic 1 Type         := Mining Aptitude
+Race Opt 3 Characteristic 1 Amount       := 120
+Race Opt 3 Characteristic 2 Type         := Refining Aptitude
+Race Opt 3 Characteristic 2 Amount       := 120
+Race Opt 3 Characteristic 3 Type         := Reproduction 
+Race Opt 3 Characteristic 3 Amount       := 120
+Race Opt 3 Num Advanced Traits           := 3
+Race Opt 3 Adv Trait 1                   := Crystallurgy
+Race Opt 3 Adv Trait 2                   := Mechanoids
+Race Opt 3 Adv Trait 3                   := Hardy Industrialists
+
+=======================================================================================
+*END*
+=======================================================================================
+

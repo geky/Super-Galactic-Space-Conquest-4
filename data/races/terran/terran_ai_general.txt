@@ -1,0 +1,96 @@
+=======================================================================================
+AI DATA FILE - General
+=======================================================================================
+
+Demeanor:
+  Psychotic, Violent, Aggressive, Impulsive, Neutral, Friendly, 
+  Honorable, Serene
+
+Culture:
+  Neutral, Berzerkers, Warriors, Traders, Politicians, Artisans, 
+  Scientists, Workers, Schemers, Zealots, Engineers, Merchants, 
+  Renegades, Xenophobes
+
+Planet Type:
+  Rock, Ice, Gas Giant
+
+Atmosphere:
+  None, Methane, Oxygen, Hydrogen, Carbon Dioxide
+
+Characteristics:
+  Physical Strength, Intelligence, Cunning, Environmental Resistance,
+  Reproduction, Happiness, Aggressiveness, Defensiveness, Political Savvy,
+  Mining Aptitude, Farming Aptitude, Refining Aptitude, Construction Aptitude,
+  Repair Aptitude, Maintenance Aptitude
+
+Adv Traits:
+  Advanced Power Conservation, Mechanoids, Lucky, Natural Merchants, 
+  Propulsion Experts, Ancient Race, Advanced Storage Techniques, 
+  Hardy Spacefarrers, Psychic, Deeply Religious, Temporal Knowledge, 
+  Crystallurgy, Emotionless
+
+
+=======================================================================================
+*BEGIN*
+=======================================================================================
+
+Name                                     := Terran
+Description                              := Terrans are an aggressive species which seek to expand their economy to every corner of the galaxy. 
+Empire Name                              := Terran
+Empire Type                              := Confederation
+Emperor Name                             := Vaughn
+Emperor Title                            := General
+Biological Description                   := The Terrans are one of the few species that is made up of several sub-categories that have followed different evolutionary and cultural paths.  As a result, Terrans, or Humans as they call themselves have developed into one of the most diverse races in the galaxy.  Physically, they aren't anything special.  Bipedal with two arms and a head, they are a remarkably ordinary-looking race.  A positive byproduct of this fact is that their appearence is inoffensive to most, which allows them to make treaties and trade with other races with relative ease.
+Society Description                      := The Terrans are goverened by a very liberal democracy.  The large numbers of freedoms granted by this system result in feelings of happiness and well being amongst the general population.  However, this openness also leave the Terrans vulnerable to infiltration.
+General History Description              := With so many different cultures all evolving at the same time, even a brief summary of Terran history would take volumes. The Terrans do have a pronounced history of killing each other that stretches back to the beginning of their race. As a result, they have become extremely proficient at the art. 
+Demeanor                                 := Aggressive
+Culture                                  := Merchants
+Happiness Type                           := Peaceful
+Planet Type                              := Rock
+Atmosphere                               := Oxygen
+Design Name File                         := States.txt
+Race Opt 1 Num Characteristics           := 5
+Race Opt 1 Characteristic 1 Type         := Aggressiveness
+Race Opt 1 Characteristic 1 Amount       := 110
+Race Opt 1 Characteristic 2 Type         := Political Savvy
+Race Opt 1 Characteristic 2 Amount       := 110
+Race Opt 1 Characteristic 3 Type         := Intelligence
+Race Opt 1 Characteristic 3 Amount       := 120
+Race Opt 1 Characteristic 4 Type         := Maintenance Aptitude
+Race Opt 1 Characteristic 4 Amount       := 110
+Race Opt 1 Characteristic 5 Type         := Mining Aptitude
+Race Opt 1 Characteristic 5 Amount       := 110
+Race Opt 1 Num Advanced Traits           := 0
+Race Opt 2 Num Characteristics           := 5
+Race Opt 2 Characteristic 1 Type         := Aggressiveness
+Race Opt 2 Characteristic 1 Amount       := 110
+Race Opt 2 Characteristic 2 Type         := Political Savvy
+Race Opt 2 Characteristic 2 Amount       := 110
+Race Opt 2 Characteristic 3 Type         := Intelligence
+Race Opt 2 Characteristic 3 Amount       := 120
+Race Opt 2 Characteristic 4 Type         := Maintenance Aptitude
+Race Opt 2 Characteristic 4 Amount       := 110
+Race Opt 2 Characteristic 5 Type         := Mining Aptitude
+Race Opt 2 Characteristic 5 Amount       := 110
+Race Opt 2 Num Advanced Traits           := 1
+Race Opt 2 Adv Trait 1                   := Propulsion Experts
+Race Opt 3 Num Characteristics           := 5
+Race Opt 3 Characteristic 1 Type         := Aggressiveness
+Race Opt 3 Characteristic 1 Amount       := 110
+Race Opt 3 Characteristic 2 Type         := Political Savvy
+Race Opt 3 Characteristic 2 Amount       := 110
+Race Opt 3 Characteristic 3 Type         := Intelligence
+Race Opt 3 Characteristic 3 Amount       := 120
+Race Opt 3 Characteristic 4 Type         := Maintenance Aptitude
+Race Opt 3 Characteristic 4 Amount       := 110
+Race Opt 3 Characteristic 5 Type         := Mining Aptitude
+Race Opt 3 Characteristic 5 Amount       := 110
+Race Opt 3 Num Advanced Traits           := 3
+Race Opt 3 Adv Trait 1                   := Propulsion Experts
+Race Opt 3 Adv Trait 2                   := Hardy Industrialists
+Race Opt 3 Adv Trait 3                   := Advanced Storage Techniques
+
+=======================================================================================
+*END*
+=======================================================================================
+
