@@ -1,2 +1,2 @@
 #!/bin/sh
-node server.js 8085
+node server.js 7100

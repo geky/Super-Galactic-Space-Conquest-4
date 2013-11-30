@@ -48,6 +48,7 @@ function run() {
     current.render(ctx)
     current.step(dt)
 
+    debug.fps(dt, vec(10,10))
     current.lasttime = nowtime
     current.pid = requestFrame(run)
 }
@@ -147,6 +148,26 @@ function gotocanvas(name) {
     init()
 }
 
+
+var requestFrame = (
+    window.requestAnimationFrame       ||
+    window.webkitRequestAnimationFrame ||
+    window.mozRequestAnimationFrame    ||
+    window.oRequestAnimationFrame      ||
+    window.msRequestAnimationFrame     ||
+    function(callback) { return setTimeout(callback, 28) } 
+)
+
+var cancelFrame = (
+    window.cancelAnimationFrame       ||
+    window.webkitCancelAnimationFrame ||
+    window.mozCancelAnimationFrame    ||
+    window.oCancelAnimationFrame      ||
+    window.msCancelAnimationFrame     ||
+    function(pid) { return clearTimeout(pid) }
+)
+
+
 // Debugging object
 function debug(yes) {
     debug.debug = yes
@@ -181,33 +202,34 @@ function debug(yes) {
             ctx.closePath()
         }
 
+        debug.print = function(str, p, color) {
+            ctx.textBaseline = 'top'
+            ctx.fillStyle = color || 'white'
+            ctx.font = '12px Lucida Console'
+            ctx.fillText(str, p.x, p.y)
+        }            
+
         debug.pop = function() {
             ctx.restore()
         }
+
+        var avgfps = 0
+        debug.fps = function(dt, p, color) {
+            var fps = dt > 0 ? (1.0/dt) : 0
+            avgfps = (0.99*avgfps) + (0.01*fps)
+
+            this.print('fps:' + ~~avgfps + ':' + ~~fps, p, color)
+        }
+
     } else {
         debug.log = pass
 
         debug.push = pass
         debug.vec = pass
         debug.circle = pass
+        debug.print = pass
         debug.pop = pass
+
+        debug.fps = pass
     }
 }
-
-var requestFrame = (
-    window.requestAnimationFrame       ||
-    window.webkitRequestAnimationFrame ||
-    window.mozRequestAnimationFrame    ||
-    window.oRequestAnimationFrame      ||
-    window.msRequestAnimationFrame     ||
-    function(callback) { return setTimeout(callback, 28) } 
-);
-
-var cancelFrame = (
-    window.cancelAnimationFrame       ||
-    window.webkitCancelAnimationFrame ||
-    window.mozCancelAnimationFrame    ||
-    window.oCancelAnimationFrame      ||
-    window.msCancelAnimationFrame     ||
-    function(pid) { return clearTimeout(pid) }
-)

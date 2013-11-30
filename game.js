@@ -1,5 +1,7 @@
 
 var game = (function() {
+    var timestep = 0.016
+
     var testrace = {
         designs: [
             {
@@ -41,19 +43,24 @@ var game = (function() {
         ]
     }
 
+
     var selected = testrace.ships[0]
 
-    for (var i = 0; i < 1000; i++) {
+    for (var i = 0; i < 100; i++) {
         testrace.ships.push(
             ship(0, vec(440 + i*100, 40)),
             ship(0, vec(440 + i*100, 80)),
             ship(0, vec(440 + i*100, 120))
         )
-   }
+    }
 
     var game = page()
 
-    game.step = function(dt) {
+    game.getallships = function() { return testrace.ships }
+
+    game.step = function(realdt) {
+        var dt = timestep
+
         for (var i = 0 ; i < testrace.ships.length; i++) {
             var sh = testrace.ships[i]
             var des = testrace.designs[sh.des]
@@ -69,7 +76,7 @@ var game = (function() {
         }
     }
 
-    game.click = function(pos) {
+    game.click = function(pos, event) {
         var clicked = false
 
         if (event.ctrlKey) {
@@ -91,7 +98,7 @@ var game = (function() {
             }
 
             if (!clicked) {
-                selected.task = 2
+                selected.task = 1
                 selected.target = pos
                 debug.log(selected.target)
             }
