@@ -8,24 +8,24 @@ var vec = (function() {
 
     function vec(x, y) {
         if (x instanceof Object)
-            return {x:x.x, y:x.y}
+            return {x: x.x, y: x.y}
         else if (x instanceof Array)
-            return {x:x[0], y:x[1]}
+            return {x: x[0], y: x[1]}
         else
-            return {x:x||0, y:y||0}
+            return {x: x||0, y: y||0}
     }
 
-    vec.lensq = function(v) {
+    vec.lensq = function lensq(v) {
         return v.x*v.x + v.y*v.y
     }
 
-    vec.len = function(v) {
-        return Math.sqrt(vec.lensq(v))
+    vec.len = function len(v) {
+        return Math.sqrt(lensq(v))
     }
 
     vec.norm = function(v) {
         var len = vec.len(v)
-        return vec(v.x/len, v.y/len)
+        return {x: v.x/len, y: v.y/len}
     }
 
     vec.zero = function(v) {
@@ -38,16 +38,16 @@ var vec = (function() {
 
     vec.add = function(v, s) {
         if (s instanceof Object)
-            return vec(v.x+s.x, v.y+s.y)
+            return {x: v.x+s.x, y: v.y+s.y}
         else
-            return vec(v.x+s, v.y+s)
+            return {x: v.x+s, y: v.y+s}
     }
 
     vec.sub = function(v, s) {
         if (s instanceof Object)
-            return vec(v.x-s.x, v.y-s.y)
+            return {x: v.x-s.x, y: v.y-s.y}
         else
-            return vec(v.x-s, v.y-s)
+            return {x: v.x-s, y: v.y-s}
     }
 
     vec.dot = function(v, s) {
@@ -55,7 +55,7 @@ var vec = (function() {
     }
 
     vec.scale = function(v, s) {
-        return vec(s*v.x, s*v.y)
+        return {x: s*v.x, y: s*v.y}
     }
 
     vec.distsq = function(v, s) {
@@ -71,7 +71,7 @@ var vec = (function() {
     vec.rotate = function(v, ang) {
         var cs = Math.cos(ang)
         var sn = Math.sin(ang)
-        return vec(v.x*cs - v.y*sn, v.x*sn + v.y*cs)
+        return {x: v.x*cs - v.y*sn, y: v.x*sn + v.y*cs}
     }
 
     vec.angle = function(v, s) {
@@ -80,12 +80,12 @@ var vec = (function() {
 
     vec.projectunit = function(v, s) {
         var len = vec.dot(v, s)
-        return vec(len*s.x, len*s.y)
+        return {x: len*s.x, y: len*s.y}
     }
 
     vec.project = function(v, s) {
-        var len = vec.dot(v, s) / vec.lensq()
-        return vec(len*s.x, len*s.y)
+        var len = vec.dot(v, s) / vec.lensq(s)
+        return {x: len*s.x, y: len*s.y}
     }
 
     vec.lerp = function(v0, v1, ratio) {
@@ -164,7 +164,7 @@ var mutvec = (function() {
     }
 
     mutvec.project = function(d, v, s) {
-        var len = vec.dot(v, s) / vec.lensq()
+        var len = vec.dot(v, s) / vec.lensq(s)
         d.x = len*s.x
         d.y = len*s.y
     }
