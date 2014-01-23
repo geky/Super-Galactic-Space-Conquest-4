@@ -15,12 +15,12 @@ var vec = (function() {
             return {x: x||0, y: y||0}
     }
 
-    vec.lensq = function lensq(v) {
+    vec.lensq = function(v) {
         return v.x*v.x + v.y*v.y
     }
 
-    vec.len = function len(v) {
-        return Math.sqrt(lensq(v))
+    vec.len = function(v) {
+        return Math.sqrt(vec.lensq(v))
     }
 
     vec.norm = function(v) {
