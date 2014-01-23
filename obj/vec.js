@@ -112,3 +112,67 @@ var vec = (function() {
 
     return vec
 })();
+
+
+var mutvec = (function() {
+    function mutvec(x, y) {
+        return vec(x, y)
+    }
+
+    mutvec.norm = function(d, v) {
+        var len = vec.len(v)
+        d.x = v.x/len
+        d.y = v.y/len
+    }
+
+    mutvec.add = function(d, v, s) {
+        if (s instanceof Object) {
+            d.x = v.x+s.x
+            d.y = v.y+s.y
+        } else {
+            d.x = v.x+s
+            d.y = v.y+s
+        }
+    }
+
+    mutvec.sub = function(d, v, s) {
+        if (s instanceof Object) {
+            d.x = v.x-s.x
+            d.y = v.y-s.y
+        } else {
+            d.x = v.x-s
+            d.y = v.y-s
+        }
+    }
+
+    mutvec.scale = function(d, v, s) {
+        d.x = s*v.x
+        d.y = s*v.y
+    }
+
+    mutvec.rotate = function(d, v, ang) {
+        var cs = Math.cos(ang)
+        var sn = Math.sin(ang)
+        d.x = v.x*cs - v.y*sn
+        d.y = v.x*sn + v.y*cs
+    }
+
+    mutvec.projectunit = function(d, v, s) {
+        var len = vec.dot(v, s)
+        d.x = len*s.x
+        d.y = len*s.y
+    }
+
+    mutvec.project = function(d, v, s) {
+        var len = vec.dot(v, s) / vec.lensq()
+        d.x = len*s.x
+        d.y = len*s.y
+    }
+
+    mutvec.lerp = function(d, v0, v1, ratio) {
+        d.x = v0.x*(1-ratio) + v1.x*ratio
+        d.y = v0.y*(1-ratio) + v1.y*ratio
+    }
+
+    return mutvec
+})();
