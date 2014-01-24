@@ -46,17 +46,23 @@ var game = (function() {
 
     var selected = testrace.ships[0]
 
-    for (var i = 0; i < 100; i++) {
+/*    for (var i = 0; i < 100; i++) {
         testrace.ships.push(
             ship(0, vec(440 + i*100, 40)),
             ship(0, vec(440 + i*100, 80)),
             ship(0, vec(440 + i*100, 120))
         )
-    }
+    }*/
 
     var game = page()
 
-    game.getallships = function() { return testrace.ships }
+    game.ships = mesh()
+
+    game.init = function() {
+        for (var i = 0; i < testrace.ships.length; i++) {
+            mesh.insert(game.ships, testrace.ships[i])
+        }
+    }
 
     game.step = function(realdt) {
         var dt = timestep
@@ -64,6 +70,7 @@ var game = (function() {
         for (var i = 0 ; i < testrace.ships.length; i++) {
             var sh = testrace.ships[i]
             var des = testrace.designs[sh.des]
+            mesh.debug(game.ships)
             ship.step(sh, des, dt)
         }
     }
@@ -98,7 +105,7 @@ var game = (function() {
             }
 
             if (!clicked) {
-                selected.task = 1
+                selected.task = 2
                 selected.target = pos
                 debug.log(selected.target)
             }

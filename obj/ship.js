@@ -46,7 +46,6 @@ ship = (function() {
         }
     }
 
-
     function waypoint(target, ship, des) {
         var dir = vec.sub(target, ship.pos)
         debug.circle(dir, des.rad, 'white')
@@ -78,34 +77,59 @@ ship = (function() {
 
     function avoid(others, ship, des) {
         var dir = vec()
-        
-        for (var i = 0; i < others.length; i++) {
+        /*
+        mesh.for(others, function(other) {
             var spacesq = 2*des.rad
             spacesq = spacesq*spacesq
-            var distsq = vec.distsq(ship.pos, others[i].pos)
+            var distsq = vec.distsq(ship.pos, other.pos)
 
             if (distsq < spacesq && distsq != 0) {
-                var diff = vec.sub(ship.pos, others[i].pos)
+                var diff = vec.sub(ship.pos, other.pos)
                 diff = vec.scale(vec.norm(diff), des.speed)
                 diff = vec.scale(diff, 1 - (distsq/spacesq))
 
                 dir = vec.add(dir, diff)
             }
-        }
-
+        })
+*/
         return dir
+    }
+
+
+    function dnearest(others, ship) {
+        var min = {pos:vec()}//false
+        var minsq = Infinity
+        
+        mesh.for(others, function(other) {
+            var distsq = vec.dist(ship.pos, other.pos)
+//            var mdist = Math.abs(ship.pos.x-other.pos.x) +
+//                        Math.abs(ship.pos.y-other.pos.y)
+
+            if (distsq < minsq && distsq != 0) {
+                min = other
+                minsq = distsq
+            }
+        })
+
+        debug.line(vec(), vec.sub(min.pos, ship.pos), 'gray')
     }
         
         
 
     var tasks = [
         /* stop = 0 */ function(target, ship, des) {
-            return avoid(current.getallships(), ship, des)
+            return avoid(current.ships, ship, des)
         },
 
         /* goto = 1 */ function(target, ship, des) {
-            var dir = avoid(current.getallships(), ship, des)
+            var dir = avoid(current.ships, ship, des)
             dir = vec.add(dir, waypoint(target, ship, des))
+            return dir
+        },
+
+        /* endpoint = 2 */ function(target, ship, des) {
+            var dir = avoid(current.ships, ship, des)
+            dir = vec.add(dir, endpoint(target, ship, des))
             return dir
         }
     ]
@@ -119,6 +143,7 @@ ship = (function() {
 
     ship.step = function(ship, des, dt) {
         debug.push(ship.pos)
+        //dnearest(current.ships, ship)
 
         // find target vector
         var dir = tasks[ship.task](ship.target, ship, des, dt)

@@ -185,13 +185,17 @@ function debug(yes) {
             if (pos) ctx.translate(pos.x, pos.y)
         }
 
-        debug.vec = function(v, m, r, color) {
+        debug.line = function(s, d, color) {
             ctx.beginPath()
             ctx.strokeStyle = color || 'white'
-            ctx.moveTo(0, 0)
-            ctx.lineTo(v.x/m*r, v.y/m*r)
+            ctx.moveTo(s.x, s.y)
+            ctx.lineTo(d.x, d.y)
             ctx.stroke()
             ctx.closePath()
+        }
+
+        debug.vec = function(v, m, r, color) {
+            debug.line(vec(), vec.scale(v, 1/m*r), color)
         }
 
         debug.circle = function(p, r, color) {
@@ -225,6 +229,7 @@ function debug(yes) {
         debug.log = pass
 
         debug.push = pass
+        debug.line = pass
         debug.vec = pass
         debug.circle = pass
         debug.print = pass
