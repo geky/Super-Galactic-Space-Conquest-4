@@ -13,6 +13,8 @@
 //  nbors: [int, int, int, int]
 //}
 
+debug.mesh = true
+
 var mesh = (function() {
     function mesh(src) {
         if (src instanceof Object) {
@@ -24,7 +26,7 @@ var mesh = (function() {
         } else {
             return {
                 nodes: [],
-                next: 0,
+                next: 1,
                 length: 0
             }
         }
@@ -35,20 +37,18 @@ var mesh = (function() {
     }
 
     mesh.for = function(m, cb) {
-/*        var nodes = m.nodes
+        var nodes = m.nodes
 
         for (var i = nodes.length-1; i >= 0; --i) {
             var node = nodes[i]
 
             if (node)
                 cb(node)
-        }*/
-
-        m.nodes.forEach(cb)
+        }
     }
 
     mesh.insert = function(m, node) {
-        var nbors = [-1, -1, -1, -1]
+        var nbors = [0, 0, 0, 0]
         var dists = [Infinity, Infinity, 
                      Infinity, Infinity]
 
@@ -68,9 +68,9 @@ var mesh = (function() {
         })
 
         for (var i = 0; i < nbors.length; i++) {
-            if (nbors[i] < 0) continue
+            if (!nbors[i]) continue
             var nbor = m.nodes[nbors[i]]
-            if (nbor.nbors[op(i)] < 0) continue
+            if (!nbor.nbors[op(i)]) continue
             var nbnbor = m.nodes[nbor.nbors[op(i)]]
 
             if (dists[i] < vec.distsq(nbnbor.pos, nbor.pos))
@@ -83,18 +83,12 @@ var mesh = (function() {
     }
 
     mesh.debug = function(m) {
-//        for (var j = 0; j < m.nodes.length; j++) {
-//            var node = m.nodes[j]
-//
-//            if (!node)
-//                continue
-//
         if (!debug.mesh)
             return
 
         mesh.for(m, function(node) {
             for (var i = 0; i < node.nbors.length; i++) {
-                if (node.nbors[i] < 0)
+                if (!node.nbors[i])
                     continue
 
                 debug.line(node.pos, 

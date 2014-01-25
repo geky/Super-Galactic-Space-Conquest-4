@@ -70,9 +70,11 @@ var game = (function() {
         for (var i = 0 ; i < testrace.ships.length; i++) {
             var sh = testrace.ships[i]
             var des = testrace.designs[sh.des]
-            mesh.debug(game.ships)
+
             ship.step(sh, des, dt)
         }
+
+        mesh.debug(game.ships)
     }
 
     game.render = function(ctx) {

@@ -91,7 +91,7 @@ ship = (function() {
                 dir = vec.add(dir, diff)
             }
         })
-*/
+        */
         return dir
     }
 
@@ -111,7 +111,7 @@ ship = (function() {
             }
         })
 
-        debug.line(vec(), vec.sub(min.pos, ship.pos), 'gray')
+        debug.line(vec(), vec.sub(min.pos, ship.pos), 'red')
     }
         
         
@@ -143,7 +143,7 @@ ship = (function() {
 
     ship.step = function(ship, des, dt) {
         debug.push(ship.pos)
-        //dnearest(current.ships, ship)
+        dnearest(current.ships, ship)
 
         // find target vector
         var dir = tasks[ship.task](ship.target, ship, des, dt)
